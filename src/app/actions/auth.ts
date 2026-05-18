@@ -66,9 +66,9 @@ export async function register(formData: FormData) {
     cookieStore.set('session', session, { expires, httpOnly: true })
     
     return { success: true }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Register error:', error)
-    return { error: 'Sunucu hatası: Veritabanına bağlanılamadı veya şema güncel değil.' }
+    return { error: 'Sunucu hatası: ' + (error?.message || String(error)) }
   }
 }
 
