@@ -26,7 +26,7 @@ export async function login(formData: FormData) {
   const cookieStore = await cookies()
   cookieStore.set('session', session, { expires, httpOnly: true })
   
-  redirect('/dashboard')
+  return { success: true }
 }
 
 export async function register(formData: FormData) {
@@ -59,7 +59,7 @@ export async function register(formData: FormData) {
   const cookieStore = await cookies()
   cookieStore.set('session', session, { expires, httpOnly: true })
   
-  redirect('/dashboard')
+  return { success: true }
 }
 
 export async function logout() {

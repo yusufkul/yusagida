@@ -1,24 +1,32 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
 import { login } from '@/app/actions/auth'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const initialState = {
   error: ''
 }
 
 export default function LoginPage() {
+  const router = useRouter()
   const [state, formAction, isPending] = useActionState(
     async (prevState: any, formData: FormData) => {
       const result = await login(formData)
       if (result?.error) {
-        return { error: result.error }
+        return { error: result.error, success: false }
       }
-      return prevState
+      return { error: '', success: true }
     },
     initialState
   )
+
+  useEffect(() => {
+    if (state.success) {
+      router.push('/dashboard')
+    }
+  }, [state.success, router])
 
   return (
     <div className="auth-container">

@@ -1,9 +1,15 @@
-{
-  "appId": "com.yusa.depo",
-  "appName": "depo-yonetim",
-  "webDir": "out",
-  "server": {
-    "url": "https://yusagida.vercel.app"
+import type { CapacitorConfig
+} from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.yusa.depo',
+  appName: 'depo-yonetim',
+  server: {
+    url: 'https: //yusagida.vercel.app',
+    cleartext: true
   },
-  "bundledWebRuntime": false
-}
+  // androidScheme: 'https', // Autofill gibi bir sorun olursa dene
+  bundledWebRuntime: false
+};
+
+export default config;
