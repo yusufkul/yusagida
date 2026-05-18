@@ -1,0 +1,9 @@
+{
+  "appId": "com.yusa.depo",
+  "appName": "depo-yonetim",
+  "webDir": "out",
+  "server": {
+    "url": "https://yusagida.vercel.app"
+  },
+  "bundledWebRuntime": false
+}

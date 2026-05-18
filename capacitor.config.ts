@@ -1,14 +1,14 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.yusa.depo',
   appName: 'depo-yonetim',
-  webDir: 'public',
-  bundledWebRuntime: false,
+  webDir: 'out', // Next.js statik çıktı klasörü
   server: {
-    url: 'https://depo-yonetim-projeniz.vercel.app',
+    url: 'https://yusagida.vercel.app', // Canlı URL'niz
     cleartext: true
-  }
+  },
+  bundledWebRuntime: false
 };
 
 export default config;
